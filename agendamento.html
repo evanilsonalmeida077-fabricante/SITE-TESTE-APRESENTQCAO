@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#080808">
+<title>Agendamento | Sua marca</title>
+<style>
+:root{--bg:#080808;--card:#181818;--line:#292929;--text:#f5f5f5;--muted:#999;--orange:#ff7a18;--orange2:#ff9a3d;--blue:#2f80ed;--green:#39c67a}
+*{box-sizing:border-box}body{margin:0;background:#050505;color:var(--text);font-family:Inter,Arial,sans-serif;padding:20px 16px 40px}.page{width:min(100%,620px);margin:auto}.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}.back{color:#aaa;text-decoration:none;font-size:13px}.brand{font-weight:900}.hero{padding:24px 0 18px}.eyebrow{font-size:10px;letter-spacing:2px;color:var(--orange2);font-weight:900}.hero h1{font-family:Georgia,serif;font-size:34px;line-height:1.05;margin:8px 0}.hero p{color:var(--muted);font-size:13px;margin:0}.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}.step{background:#121212;border-radius:12px;padding:11px 8px;font-size:10px;color:#aaa}.step b{display:block;color:#fff;font-size:15px;margin-bottom:4px}.field{margin-bottom:13px}.field label{display:block;font-size:11px;font-weight:800;margin-bottom:6px}.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);background:#101010;color:#fff;border-radius:11px;padding:12px;outline:none}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.slots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.slot{border:1px solid var(--line);background:#101010;color:#bbb;border-radius:10px;padding:10px;font-size:11px;font-weight:800}.slot.active{background:var(--orange);color:#111;border-color:var(--orange)}.submit{width:100%;border:0;border-radius:12px;padding:14px;background:linear-gradient(135deg,var(--orange2),var(--orange));color:#111;font-weight:900;margin-top:4px}.note{color:#777;font-size:10px;text-align:center;margin-top:12px;line-height:1.5}.success{display:none;margin-top:12px;background:#10251a;border:1px solid #245d3c;color:#9de0b6;border-radius:12px;padding:12px;font-size:11px}.success.show{display:block}@media(max-width:420px){.steps{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.slots{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="top"><a class="back" href="index.html">← Voltar</a><div class="brand">SUA MARCA + SUA LOGO</div></header>
+<section class="hero"><div class="eyebrow">AGENDAMENTO</div><h1>Escolha o melhor horário para você.</h1><p>Preencha seus dados, escolha o serviço, a data e um horário. Sua solicitação será enviada para confirmação.</p></section>
+<div class="card">
+<div class="steps"><div class="step"><b>01</b>Serviço</div><div class="step"><b>02</b>Data e horário</div><div class="step"><b>03</b>Confirmação</div></div>
+<form id="booking">
+<div class="field"><label for="service">Serviço</label><select id="service" required><option value="">Selecione um serviço</option><option>Barba — R$ 20,00</option><option>Bigode — R$ 10,00</option><option>Cabelo + Barba — R$ 55,00</option><option>Cabelo + Barba + Sobrancelha — R$ 65,00</option><option>Cabelo + Sobrancelha — R$ 45,00</option><option>Sobrancelha — R$ 10,00</option><option>Hidratação Capilar — R$ 10,00</option><option>Limpeza de Pele — R$ 20,00</option><option>Relaxamento Capilar — R$ 20,00</option><option>Luzes — R$ 100,00</option><option>Platinado — R$ 125,00</option></select></div>
+<div class="grid"><div class="field"><label for="date">Data</label><input id="date" type="date" required></div><div class="field"><label>Horário</label><input id="time" type="time" required></div></div>
+<div class="field"><label>Horários sugeridos</label><div class="slots"><button type="button" class="slot">09:00</button><button type="button" class="slot">10:00</button><button type="button" class="slot">11:00</button><button type="button" class="slot">14:00</button><button type="button" class="slot">15:00</button><button type="button" class="slot">16:00</button><button type="button" class="slot">18:00</button><button type="button" class="slot">19:00</button><button type="button" class="slot">20:00</button></div></div>
+<div class="grid"><div class="field"><label for="name">Nome</label><input id="name" required placeholder="Seu nome"></div><div class="field"><label for="phone">WhatsApp</label><input id="phone" required inputmode="tel" placeholder="(00) 00000-0000"></div></div>
+<div class="field"><label for="message">Observação</label><textarea id="message" rows="4" placeholder="Alguma preferência ou informação importante?"></textarea></div>
+<button class="submit" type="submit">Solicitar agendamento →</button>
+<div class="success" id="success">Solicitação preparada. Agora você será direcionado ao WhatsApp para confirmar o horário.</div>
+</form>
+</div>
+<p class="note">O horário só é confirmado após a resposta do estabelecimento. Este modelo pode ser personalizado para cada cliente.</p>
+</div>
+<script>
+const date=document.getElementById('date');date.min=new Date().toISOString().split('T')[0];
+document.querySelectorAll('.slot').forEach(b=>b.onclick=()=>{document.querySelectorAll('.slot').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById('time').value=b.textContent});
+document.getElementById('booking').onsubmit=e=>{e.preventDefault();const s=document.getElementById('service').value,d=document.getElementById('date').value,t=document.getElementById('time').value,n=document.getElementById('name').value.trim(),p=document.getElementById('phone').value.trim(),m=document.getElementById('message').value.trim();const text=`Olá! Gostaria de solicitar um agendamento.%0A%0ANome: ${encodeURIComponent(n)}%0AWhatsApp: ${encodeURIComponent(p)}%0AServiço: ${encodeURIComponent(s)}%0AData: ${encodeURIComponent(d)}%0AHorário: ${encodeURIComponent(t)}%0AObservação: ${encodeURIComponent(m||'Nenhuma')}`;document.getElementById('success').classList.add('show');window.open('https://wa.me/5500000000000?text='+text,'_blank')};
+</script>
+</body>
+</html>
