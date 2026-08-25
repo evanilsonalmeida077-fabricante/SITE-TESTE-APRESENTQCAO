@@ -1,71 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Galeria de imagens da João Junior Barbearia.">
-  <title>Galeria | João Junior Barbearia</title>
-  <link rel="stylesheet" href="galeria.css">
-</head>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Galeria de imagens da João Junior Barbearia."><title>Galeria | João Junior Barbearia</title><link rel="stylesheet" href="galeria.css"></head>
 <body>
-  <header class="hero">
-    <a class="voltar" href="index.html">← Voltar</a>
-    <div class="hero-content">
-      <span class="eyebrow">JOÃO JUNIOR BARBEARIA</span>
-      <h1>Nossa Galeria</h1>
-      <p>Confira nossos cortes, nosso ambiente e os detalhes da barbearia.</p>
-    </div>
-  </header>
-
-  <main class="galeria-container">
-    <div class="galeria-grid">
-      <!-- ADICIONE SUAS IMAGENS AQUI.
-           Exemplo: <img src="imagens/foto1.jpg" alt="Corte masculino na João Junior Barbearia"> -->
-
-      <div class="sem-imagens">
-        <div class="icone">＋</div>
-        <h2>Adicione suas imagens</h2>
-        <p>Crie uma pasta chamada <strong>imagens</strong> no repositório e coloque suas fotos nela. Depois, adicione os arquivos no bloco acima.</p>
-      </div>
-    </div>
-  </main>
-
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <button class="fechar" type="button" aria-label="Fechar imagem">×</button>
-    <img id="imagem-ampliada" src="" alt="">
-  </div>
-
-  <footer>
-    <p>© João Junior Barbearia. Todos os direitos reservados.</p>
-  </footer>
-
-  <script>
-    const lightbox = document.getElementById('lightbox');
-    const imagemAmpliada = document.getElementById('imagem-ampliada');
-    const fechar = document.querySelector('.fechar');
-
-    document.querySelectorAll('.galeria-grid img').forEach((imagem) => {
-      imagem.addEventListener('click', () => {
-        imagemAmpliada.src = imagem.src;
-        imagemAmpliada.alt = imagem.alt;
-        lightbox.classList.add('ativo');
-        lightbox.setAttribute('aria-hidden', 'false');
-      });
-    });
-
-    function fecharLightbox() {
-      lightbox.classList.remove('ativo');
-      lightbox.setAttribute('aria-hidden', 'true');
-    }
-
-    fechar.addEventListener('click', fecharLightbox);
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) fecharLightbox();
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') fecharLightbox();
-    });
-  </script>
-</body>
-</html>
+<header class="hero"><a class="voltar" href="index.html">← Voltar</a><div class="hero-content"><span class="eyebrow">JOÃO JUNIOR BARBEARIA</span><h1>Nossa Galeria</h1><p>Confira nossos cortes, nosso ambiente e os detalhes da barbearia.</p></div></header>
+<main class="galeria-container"><div class="galeria-grid"><img src="IMG_2656.jpeg" alt="Trabalho da João Junior Barbearia"><img src="IMG_2657.jpeg" alt="Trabalho da João Junior Barbearia"></div></main>
+<div class="lightbox" id="lightbox" aria-hidden="true"><button class="fechar" type="button" aria-label="Fechar imagem">×</button><img id="imagem-ampliada" src="" alt=""></div>
+<footer><p>© João Junior Barbearia. Todos os direitos reservados.</p></footer>
+<script>const l=document.getElementById('lightbox'),i=document.getElementById('imagem-ampliada'),f=document.querySelector('.fechar');document.querySelectorAll('.galeria-grid img').forEach(x=>x.addEventListener('click',()=>{i.src=x.src;i.alt=x.alt;l.classList.add('ativo');l.setAttribute('aria-hidden','false')}));function closeLightbox(){l.classList.remove('ativo');l.setAttribute('aria-hidden','true')}f.addEventListener('click',closeLightbox);l.addEventListener('click',e=>{if(e.target===l)closeLightbox()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});</script>
+</body></html>
