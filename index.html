@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="description" content="JO-O JÚNIOR BARBEARIA — consulte serviços e agende seu horário.">
+  <title>JO-O JÚNIOR BARBEARIA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">J</span><span>JO-O JÚNIOR</span></div>
+    <div class="top-actions"><button class="icon-btn" id="themeBtn" aria-label="Alternar tema">☾</button><button class="locale">🇧🇷 <span>BR</span>⌄</button></div>
+  </header>
+
+  <main>
+    <section class="profile shell">
+      <div class="avatar">JJ</div>
+      <div class="profile-copy"><div class="rating">★ 5.0</div><h1>JO-O JÚNIOR<br>BARBEARIA</h1><p>Seu estilo começa aqui.</p></div>
+      <button class="heart icon-btn" id="heartBtn" aria-label="Favoritar">♡</button>
+    </section>
+
+    <section class="gallery shell" aria-label="Fotos da barbearia">
+      <div class="gallery-main" id="galleryMain"><span>JO-O JÚNIOR</span><small>BARBEARIA</small></div>
+      <button class="gallery-arrow prev" id="prev">‹</button><button class="gallery-arrow next" id="next">›</button>
+      <div class="dots" id="dots"></div>
+    </section>
+
+    <nav class="tabs shell" id="tabs" aria-label="Navegação">
+      <button class="tab active" data-tab="services">Serviços</button><button class="tab" data-tab="professionals">Profissionais</button><button class="tab" data-tab="loyalty">Fidelidade</button><button class="tab" data-tab="products">Produtos</button><button class="tab" data-tab="packages">Pacotes</button>
+    </nav>
+
+    <section class="content shell">
+      <div class="section-head"><div><span class="eyebrow">ATENDIMENTO</span><h2 id="sectionTitle">Serviços</h2></div><button class="filter-btn" id="sortBtn">↕ <span>Valor</span></button></div>
+      <div class="search"><span>⌕</span><input id="search" type="search" placeholder="Pesquisar serviços"></div>
+      <div id="dynamicContent"></div>
+    </section>
+
+    <section class="details shell">
+      <div class="section-head"><div><span class="eyebrow">INFORMAÇÕES</span><h2>Detalhes</h2></div></div>
+      <article class="detail-card"><div class="detail-icon">⌖</div><div><h3>Localização</h3><p>Endereço da barbearia</p><a href="https://www.google.com/maps" target="_blank" rel="noopener">Abrir rota →</a></div></article>
+      <article class="detail-card"><div class="detail-icon">◷</div><div class="wide"><h3>Horário de atendimento</h3><div class="hours"><p>Segunda <b>08:30–12:30 · 13:30–22:00</b></p><p>Terça <b>08:30–12:30 · 13:30–22:00</b></p><p>Quarta <b>08:30–12:30 · 13:30–22:00</b></p><p>Quinta <b>08:30–12:30 · 13:30–22:00</b></p><p>Sexta <b>08:30–12:30 · 13:30–22:00</b></p><p>Sábado <b>08:30–12:30 · 13:30–22:00</b></p></div></div></article>
+      <article class="detail-card"><div class="detail-icon">$</div><div><h3>Formas de pagamento</h3><div class="chips"><span>Dinheiro</span><span>Crédito</span><span>Débito</span><span>PIX</span></div></div></article>
+      <article class="detail-card"><div class="detail-icon">☎</div><div><h3>Contato</h3><div class="contact"><span>WhatsApp / telefone</span><button id="copyBtn">Copiar</button></div></div></article>
+    </section>
+  </main>
+
+  <button class="cta" id="bookingBtn">Agendar agora <span>→</span></button>
+
+  <footer class="footer shell"><div class="footer-brand"><span class="brand-mark">J</span><div><strong>JO-O JÚNIOR BARBEARIA</strong><small>Estilo, cuidado e precisão.</small></div></div><div class="socials"><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="WhatsApp">◉</a></div><div class="footer-links"><a href="#">Início</a><a href="#">Agendamentos</a><a href="#">Favoritos</a><a href="#">Termos de uso</a></div></footer>
+
+  <nav class="bottom-nav"><button class="active">⌂<span>Início</span></button><button id="bottomSearch">⌕<span>Buscar</span></button><button id="bottomBookings">▣<span>Agendamentos</span></button><button>◉<span>Perfil</span></button></nav>
+
+  <div class="modal" id="modal" aria-hidden="true"><div class="modal-card"><button class="modal-close" id="modalClose">×</button><span class="eyebrow">AGENDAMENTO</span><h2>Escolha o serviço</h2><p>Selecione um serviço para continuar. O fluxo de horário pode ser conectado ao WhatsApp ou a uma API de agendamento.</p><div id="modalServices"></div></div></div>
+</body>
+</html>
